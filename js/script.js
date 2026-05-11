@@ -13,7 +13,6 @@ function mostrarCamposExtra() {
     const tipo           = document.getElementById("tipoVehiculoId").value;
     const campoCilindraje    = document.getElementById("campoCilindraje");
     const campoNumeroPuertas = document.getElementById("campoNumeroPuertas");
-
     campoCilindraje.style.display    = (tipo === 'M') ? 'block' : 'none';
     campoNumeroPuertas.style.display = (tipo === 'C') ? 'block' : 'none';
 }

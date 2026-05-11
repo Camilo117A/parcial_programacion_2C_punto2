@@ -7,7 +7,6 @@ function crearVehiculo() {
     const tipoVehiculo     = document.getElementById("tipoVehiculoId").value;
 
     let vehiculo;
-
     if (tipoVehiculo === 'M') {
         const cilindraje = parseInt(document.getElementById("cilindrajeId").value);
         vehiculo = new Moto(placa, propietario, horasEstacionado, tarifaBase, cilindraje);
@@ -19,9 +18,7 @@ function crearVehiculo() {
     }
 
     vehiculo.tarifaTotal = vehiculo.calcularTarifaTotal();
-
     let vehiculos = JSON.parse(localStorage.getItem("vehiculos")) || [];
-
     const editIndex = document.getElementById("formVehiculo").dataset.editIndex;
 
     if (editIndex !== undefined && editIndex !== "") {
@@ -32,7 +29,6 @@ function crearVehiculo() {
     }
 
     localStorage.setItem("vehiculos", JSON.stringify(vehiculos));
-
     limpiarFormulario();
     mostrarVehiculos();
 }
@@ -42,7 +38,6 @@ function mostrarVehiculos() {
     tbody.innerHTML = '';
 
     const vehiculos = JSON.parse(localStorage.getItem("vehiculos")) || [];
-
     vehiculos.forEach((v, index) => {
         const fila = `<tr>
             <td>${index + 1}</td>
@@ -87,7 +82,6 @@ function actualizarVehiculo(index) {
     if (v.numeroPuertas !== undefined) document.getElementById("numeroPuertasId").value = v.numeroPuertas;
 
     document.getElementById("formVehiculo").dataset.editIndex = index;
-
     mostrarFormRegistro();
 }
 
